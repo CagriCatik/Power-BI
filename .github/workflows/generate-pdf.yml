@@ -22,7 +22,9 @@ jobs:
           pip install mkdocs mkdocs-material mkdocs-with-pdf
 
       - name: Build site and generate PDF
-        run: mkdocs build --clean && mkdocs pdf-export
+        run: |
+          mkdocs build --clean --config-file mkdocs.withpdf.yml
+          mkdocs pdf-export --config-file mkdocs.withpdf.yml
 
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v3

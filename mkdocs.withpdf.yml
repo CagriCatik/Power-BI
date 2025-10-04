@@ -147,3 +147,7 @@ extra:
 
 extra_css:
   - styles/extra.css
+
+plugins:
+  - search
+  - with-pdf
