@@ -4,18 +4,14 @@ nav:
   - Home: index.md
 
   - Getting Started with Power BI:
-      - Introduction to Power BI: 01_introduction.md
-      - About the Course: 01_about_the_course.md
-      - Download the Training Data Files: 01_download_data_files.md
-      - Introduction to Signing Up for Power BI: 01_intro_sign_up.md
-      - Signing Up for Power BI: 01_sign_up.md
-      - Load Data into the Power BI Service: 01_load_data_service.md
-      - Practical Activity: 01_practical_activity.md
+      - Introduction to Power BI: 01_01_introduction.md
+      - Signing Up for Power BI: 01_02_intro_sign_up.md
+      - Load Data into the Power BI Service: 01_03_load_data_service.md
 
   - Power BI Desktop Overview:
-      - Introduction to Power BI Desktop Section: 02_intro_desktop_section.md
-      - Options and Settings: 02_options_settings.md
-      - Overview of Power BI Desktop: 02_overview_desktop.md
+      - Introduction to Power BI Desktop: 02_01_intro_desktop_section.md
+      - Options and Settings: 02_02_options_settings.md
+      - Overview of Power BI Desktop: 02_03_overview_desktop.md
 
   - Working with Tables:
       - Create Tables in Power BI Desktop Section: 03_intro_tables_section.md
@@ -116,6 +112,8 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - navigation.sections       # enables grouped, collapsible sections
+    - navigation.indexes        # treats index.md inside a section as its landing page
     - search.suggest
     - search.highlight
     - search.share
@@ -123,7 +121,7 @@ theme:
     - content.code.annotate
     - content.tabs.link
     - header.autohide
-    - toc.integrate
+    - header.autohide
     - toc.follow
     - palette.toggle
   palette:
@@ -145,4 +143,7 @@ extra:
   copyright: false
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/CagriCatik/
+      link: https://github.com/CagriCatik/Power-BI
+
+extra_css:
+  - styles/extra.css

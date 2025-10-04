@@ -1,9 +1,8 @@
-# Power BI Course Documentation
+# Power BI
 
 ## Overview
 
 This repository contains the full course material for learning Microsoft Power BI, from getting started to advanced reporting and data modeling. The content is structured to guide users step by step — starting with installation and setup, progressing through data visualization, modeling, and publishing reports.
-
 
 ---
 
@@ -130,7 +129,6 @@ mkdocs build
 
 * **Power BI Desktop** (latest version recommended)
 * Access to **Power BI Service**
-* Downloadable **sample datasets** included in the `01_download_data_files.md` section.
 
 ---
 
