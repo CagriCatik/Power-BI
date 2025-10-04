@@ -3,7 +3,7 @@ name: Deploy MkDocs site to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change if your default branch is different
+      - main
 
 jobs:
   deploy:
@@ -27,3 +27,18 @@ jobs:
         env:
           DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
         run: mkdocs gh-deploy --force
+
+  cleanup:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      deployments: write
+      contents: read
+
+    steps:
+      - name: Delete old GitHub Pages deployments
+        uses: strumwolf/delete-deployment-environment@v2
+        with:
+          token: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
+          environment: github-pages
+          onlyRemoveDeployments: true
