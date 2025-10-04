@@ -1,14 +1,12 @@
 # GitHub Actions Workflows
 
----
-
 ## 1. **Generate PDF from MkDocs Site**
 
 **Workflow Name:** `Generate PDF from MkDocs Site`
 **Trigger:** Manual (`workflow_dispatch`)
 **Purpose:** Build the MkDocs site and generate a PDF export using `mkdocs-with-pdf`.
 
-#### Steps:
+### Steps:
 
 * **Checkout code:** Pulls the latest code from the repository.
 * **Set up Python:** Installs Python `3.x` using `actions/setup-python@v4`.
