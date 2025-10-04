@@ -1,14 +1,24 @@
-# Power BI
+<h1 align="center">Power BI Learning Repository</h1>
 
-| Workflow                 | Status                                                                                               |
-| ------------------------ | ---------------------------------------------------------------------------------------------------- |
-| Deploy MkDocs site       | ![Deploy on GitHub](https://github.com/CagriCatik/Power-BI/actions/workflows/deploy.yml/badge.svg)   |
-| Generate PDF from MkDocs | ![Generate PDF](https://github.com/CagriCatik/Power-BI/actions/workflows/generate-pdf.yml/badge.svg) |
-| Check Links              | ![Check Links](https://github.com/CagriCatik/Power-BI/actions/workflows/check-links.yml/badge.svg)   |
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI Logo" width="120"/>
+</p>
+
+
+<p align="center">
+  <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/deploy.yml/badge.svg" alt="Deploy MkDocs site"/>
+  <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/generate-pdf.yml/badge.svg" alt="Generate PDF from MkDocs"/>
+  <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/check-links.yml/badge.svg" alt="Check Links"/>
+  <img src="https://img.shields.io/badge/Microsoft-Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=white" alt="Power BI Badge"/>
+  <img src="https://img.shields.io/badge/MkDocs-Documentation-1f77b4?style=flat&logo=markdown&logoColor=white" alt="MkDocs Badge"/>
+  <img src="https://img.shields.io/badge/GitHub%20Pages-Deployed-181717?style=flat&logo=github&logoColor=white" alt="GitHub Pages Badge"/>
+</p>
+
+---
 
 ## Overview
 
-This repository contains the full course material for learning Microsoft Power BI, from getting started to advanced reporting and data modeling. The content is structured to guide users step by step — starting with installation and setup, progressing through data visualization, modeling, and publishing reports.
+This repository contains the full course material for learning **Microsoft Power BI**, from getting started to advanced reporting and data modeling. The content is structured to guide users step by step — starting with installation and setup, progressing through data visualization, modeling, and publishing reports.
 
 ---
 
@@ -16,112 +26,90 @@ This repository contains the full course material for learning Microsoft Power B
 
 ### 1. Getting Started with Power BI
 
-Introduces Power BI and helps you set up your working environment.
-
-* **Introduction to Power BI** — Overview of the tool and its purpose.
-* **About the Course** — Course objectives and structure.
-* **Download the Training Data Files** — Required datasets for exercises.
-* **Signing Up for Power BI** — Guide to creating a Power BI account.
-* **Load Data into the Power BI Service** — Uploading and preparing data.
-* **Practical Activity** — Hands-on exercise for initial setup.
+* **Introduction to Power BI** — Overview of the tool and its purpose.  
+* **About the Course** — Course objectives and structure.  
+* **Download the Training Data Files** — Required datasets for exercises.  
+* **Signing Up for Power BI** — Guide to creating a Power BI account.  
+* **Load Data into the Power BI Service** — Uploading and preparing data.  
+* **Practical Activity** — Hands-on exercise for initial setup.  
 
 ### 2. Power BI Desktop Overview
 
-Provides an overview of Power BI Desktop features and configurations.
-
-* Options and Settings.
-* Interface and layout of Power BI Desktop.
+* Options and settings.  
+* Interface and layout of Power BI Desktop.  
 
 ### 3. Working with Tables
 
-Covers creating and formatting tables.
-
-* Creating tables and adjusting their appearance.
-* Cross-filtering tables and changing aggregation methods.
-* Practical activities and solutions to reinforce table concepts.
+* Creating tables and adjusting their appearance.  
+* Cross-filtering tables and changing aggregation methods.  
+* Practical activities and solutions to reinforce table concepts.  
 
 ### 4. Visualizations — Matrix & Cards
 
-Explains two key visualization types.
-
-* Matrix visualizations and how to configure them.
-* Cards for displaying single-value metrics.
-* Practical exercises and completed activity guides.
+* Matrix visualizations and how to configure them.  
+* Cards for displaying single-value metrics.  
+* Practical exercises and completed activity guides.  
 
 ### 5. Dates and Visual Calculations
 
-Introduces working with date data and performing calculations.
-
-* Date management and formatting.
-* Visual-level calculations using built-in functions.
-* Practical setup and use cases for calculations.
+* Date management and formatting.  
+* Visual-level calculations using built-in functions.  
+* Practical setup and use cases for calculations.  
 
 ### 6. Filters and Slicers
 
-Teaches filtering and slicing data for better analysis.
-
-* Text, numeric, and date slicers.
-* Visual-level, page-level, and report-level filters.
-* Practical activities with solutions.
+* Text, numeric, and date slicers.  
+* Visual-level, page-level, and report-level filters.  
+* Practical activities with solutions.  
 
 ### 7. Graph Visualizations
 
-Focuses on chart and graph creation.
-
-* Clustered column, stacked, and 100% charts.
-* Graph options, trend analysis, and forecasting.
-* Reference lines and additional chart types.
-* Practical challenges with completed solutions.
+* Clustered column, stacked, and 100% charts.  
+* Graph options, trend analysis, and forecasting.  
+* Reference lines and additional chart types.  
+* Practical challenges with completed solutions.  
 
 ### 8. Interactive Dashboards & Reports
 
-Guides on creating dynamic dashboards and publishing reports.
-
-* Building interactive dashboards and reports.
-* Publishing to the Power BI service.
-* Pinning visuals to dashboards.
-* Mobile reports, Q&A visuals, app workspaces, and themes.
-* Using custom visuals for extended capabilities.
+* Building interactive dashboards and reports.  
+* Publishing to the Power BI service.  
+* Pinning visuals to dashboards.  
+* Mobile reports, Q&A visuals, app workspaces, and themes.  
+* Using custom visuals for extended capabilities.  
 
 ### 9. Data Modeling — Columns & Measures
 
-Covers Power BI’s data modeling features with DAX.
-
-* Calculated columns and measures.
-* Date functions and master tables.
-* The `CALCULATE` formula and DAX query view.
-* Hands-on activities with solutions.
+* Calculated columns and measures.  
+* Date functions and master tables.  
+* The `CALCULATE` formula and DAX query view.  
+* Hands-on activities with solutions.  
 
 ### 10. Relationships and Data Transformation
 
-Explores connecting and transforming data.
-
-* Creating and managing relationships between tables.
-* Relationship calculations.
-* Using the Query Editor for data transformation.
-* Creating summary tables.
+* Creating and managing relationships between tables.  
+* Relationship calculations.  
+* Using the Query Editor for data transformation.  
+* Creating summary tables.  
 
 ### 11. Integration with Other Tools
 
-Shows how to connect Power BI with other Microsoft tools.
-
-* Power BI with Excel for enhanced analysis.
-* Power BI with PowerPoint for reporting.
+* Power BI with Excel for enhanced analysis.  
+* Power BI with PowerPoint for reporting.  
 
 ---
 
 ## Usage
 
-1. Clone or download this repository.
-2. Open the documentation site using [MkDocs](https://www.mkdocs.org/).
-3. Follow the course from top to bottom or jump to specific sections.
-4. Use the provided practice files for hands-on activities.
+1. Clone or download this repository.  
+2. Open the documentation site using [MkDocs](https://www.mkdocs.org/).  
+3. Follow the course from top to bottom or jump to specific sections.  
+4. Use the provided practice files for hands-on activities.  
 
-Run the site locally with:
+Run the site locally:
 
 ```bash
 mkdocs serve
-```
+````
 
 Build the static site:
 
