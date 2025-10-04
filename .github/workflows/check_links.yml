@@ -1,0 +1,17 @@
+name: Check Links
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install lychee
+        run: cargo install lychee
+
+      - name: Run link check
+        run: lychee --verbose --no-progress --exclude-mail docs/**/*.md

@@ -147,3 +147,6 @@ extra:
 
 extra_css:
   - styles/extra.css
+
+plugins:
+  - with-pdf
