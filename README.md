@@ -1,5 +1,11 @@
 # Power BI
 
+| Workflow                 | Status                                                                                               |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| Deploy MkDocs site       | ![Deploy on GitHub](https://github.com/CagriCatik/Power-BI/actions/workflows/deploy.yml/badge.svg)   |
+| Generate PDF from MkDocs | ![Generate PDF](https://github.com/CagriCatik/Power-BI/actions/workflows/generate-pdf.yml/badge.svg) |
+| Check Links              | ![Check Links](https://github.com/CagriCatik/Power-BI/actions/workflows/check-links.yml/badge.svg)   |
+
 ## Overview
 
 This repository contains the full course material for learning Microsoft Power BI, from getting started to advanced reporting and data modeling. The content is structured to guide users step by step — starting with installation and setup, progressing through data visualization, modeling, and publishing reports.
