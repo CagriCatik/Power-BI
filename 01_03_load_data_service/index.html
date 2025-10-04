@@ -1,0 +1,4000 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../01_02_intro_sign_up/">
+      
+      
+        <link rel="next" href="../02_01_intro_desktop_section/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>Load Data into the Power BI Service - Power BI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../styles/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#loading-excel-data-and-building-a-report" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Power BI" class="md-header__button md-logo" aria-label="Power BI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Power BI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Load Data into the Power BI Service
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Power BI" class="md-nav__button md-logo" aria-label="Power BI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Power BI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started with Power BI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started with Power BI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_01_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Power BI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_02_intro_sign_up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Up for Power BI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Load Data into the Power BI Service
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Load Data into the Power BI Service
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-preparation-checklist-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Preparation Checklist (Excel)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-the-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access the Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-to-a-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Go to a Workspace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-semantic-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Semantic Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choose-storage-and-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose Storage and Upload
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorize-if-prompted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorize if Prompted
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-workbook-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Select Workbook Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-and-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load and Validate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-a-simple-report-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a Simple Report (Table)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build a Simple Report (Table)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert-a-table-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insert a Table Visual
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-formatting-and-interaction-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Formatting and Interaction (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#save-and-locate-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save and Locate Artifacts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Save and Locate Artifacts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save-the-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save the Report
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirm-in-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirm in Workspace
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operational-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operational Guidance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operational Guidance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-choice-and-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Choice and Refresh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workspace-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workspace Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-types-and-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Types and Quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-construction-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Construction Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-button-disabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Next" Button Disabled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-tables-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      No Tables Found
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-types-misdetected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Types Misdetected
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-dialog-off-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload Dialog Off-Screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields-not-aggregating-as-expected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields Not Aggregating As Expected
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-not-visible-after-save" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report Not Visible After Save
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before Upload
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#during-model-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      During Model Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-model-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      After Model Creation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes and Limits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Power BI Desktop Overview
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Power BI Desktop Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_01_intro_desktop_section/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Power BI Desktop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_02_options_settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Options and Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_03_overview_desktop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview of Power BI Desktop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Working with Tables
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Working with Tables
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_intro_tables_section/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create Tables in Power BI Desktop Section
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_creating_tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Tables in Power BI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_table_styles_formatting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Table Styles and Formatting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_tables_practical_activity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tables Practical Activity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_answers_tables_activity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Answers to Tables Practical Activity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_cross_filtering_tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cross Filtering Tables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_change_aggregation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changing the Method of Aggregation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_methods_aggregation_activity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methods of Aggregation Practical Activity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_methods_aggregation_completed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methods of Aggregation Challenge Completed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Visualizations — Matrix & Cards
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Visualizations — Matrix & Cards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_matrix_visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Matrix Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_cards_visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cards Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_cards_matrix_activity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cards and Matrix Practical Activity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_cards_matrix_completed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cards and Matrix Completed Activity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dates and Visual Calculations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Dates and Visual Calculations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_working_with_dates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with Dates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_intro_visual_calculations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Calculations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_visual_calculations_part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup and Practical Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_visual_calculations_part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Built-in Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Filters and Slicers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Filters and Slicers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_intro_filters_slicers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Filters and Slicers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_slicers_text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Slicers - Text
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_slicers_numeric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Slicers - Numeric
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_slicers_date/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Slicers - Date
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_visual_filters_text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Level Filters - Text
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_visual_filters_numeric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Level Filters - Numeric
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_visual_filters_date/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Level Filters - Date
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_page_report_filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering Data - Page and Report Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_filters_practical_activity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Practical Activity - Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_filters_completed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Practical Activity Filters Completed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Graph Visualizations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Graph Visualizations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_intro_graphs_section/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Graph Visualization Section
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_clustered_column_graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clustered Column Graphs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_stacked_graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stacked and 100% Graphs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_column_graph_challenge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Column Graph Challenge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_column_graph_completed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Column Graph Challenge Completed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_graph_options/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph Options
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_reference_lines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reference Lines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_trend_analysis_graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trend Analysis Graphs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_trends_forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trends and Forecasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_area_graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Area Graphs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_additional_graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Additional Graphs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Interactive Dashboards & Reports
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Interactive Dashboards & Reports
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_creating_dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Interactive Dashboards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_challenge_interactive_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Challenge - Create an Interactive Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_completed_interactive_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Completed Challenge - How to Create an Interactive Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_publishing_reports_service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Publishing Reports to the Power BI Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_pinning_visualizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pinning Visualizations to Dashboards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_mobile_reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mobile Reports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_q_and_a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Q and A
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_app_workspaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    App Workspaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_publishing_app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Publishing an App
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_custom_visualizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Custom Visualizations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_themes_powerbi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Themes in Power BI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Modeling — Columns & Measures
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Data Modeling — Columns & Measures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_intro_calculated_columns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Calculated Columns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_dax_calculated_columns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DAX Calculated Columns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_date_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Date Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_formatting_dates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Formatting Dates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_date_master_tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Date Master Tables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_intro_measures_section/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Measures Section
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_intro_dax_measures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to DAX Measures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_dax_measures_activity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DAX Measures Practical Activity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_dax_measures_completed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DAX Measures Activity Completed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_calculate_formula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The =Calculate Formula
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_dax_query_view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DAX Query View
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Relationships and Data Transformation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Relationships and Data Transformation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_intro_relationships_section/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Relationships Section
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_creating_managing_relationships/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating and Managing Relationships in Power BI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_relationship_calculations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Relationship Calculations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_intro_query_editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Power BI Query Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_basic_transformations_part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basic Transformations - Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_basic_transformations_part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basic Transformations - Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_summary_tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary Tables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integration with Other Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Integration with Other Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_intro_powerbi_excel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Power BI and Excel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_powerbi_excel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Power BI and Excel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_powerbi_powerpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Power BI and Power Point
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Conclusion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Conclusion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conclusion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_useful_resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Useful Resources and Links
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-preparation-checklist-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Preparation Checklist (Excel)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-the-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access the Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-to-a-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Go to a Workspace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-semantic-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Semantic Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choose-storage-and-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose Storage and Upload
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorize-if-prompted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorize if Prompted
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-workbook-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Select Workbook Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-and-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load and Validate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-a-simple-report-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a Simple Report (Table)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build a Simple Report (Table)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert-a-table-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insert a Table Visual
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-formatting-and-interaction-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Formatting and Interaction (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#save-and-locate-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save and Locate Artifacts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Save and Locate Artifacts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save-the-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save the Report
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirm-in-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirm in Workspace
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operational-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operational Guidance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operational Guidance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-choice-and-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Choice and Refresh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workspace-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workspace Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-types-and-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Types and Quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-construction-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Construction Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-button-disabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Next" Button Disabled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-tables-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      No Tables Found
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-types-misdetected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Types Misdetected
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-dialog-off-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload Dialog Off-Screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields-not-aggregating-as-expected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields Not Aggregating As Expected
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-not-visible-after-save" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report Not Visible After Save
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before Upload
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#during-model-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      During Model Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-model-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      After Model Creation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes and Limits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="loading-excel-data-and-building-a-report">Loading Excel Data and Building a Report</h1>
+<p>Comprehensive, step-by-step documentation to:</p>
+<ol>
+<li>Create a semantic model (dataset) in Power BI Service from an Excel file.</li>
+<li>Build a simple report using a table visual.</li>
+<li>Save and locate artifacts in a workspace.</li>
+<li>Apply operational best practices and troubleshooting.</li>
+</ol>
+<p>No assumptions beyond the provided transcription. Where broader context is useful, it is labeled clearly.</p>
+<hr />
+<h2 id="terminology">Terminology</h2>
+<ul>
+<li>Semantic model: The data model stored in the Power BI Service. It backs reports and exposes tables, columns, and relationships.</li>
+<li>Dataset: Common term historically used for the model in the Service. In this document, "semantic model" is preferred.</li>
+<li>Report: A set of pages and visuals built on top of a semantic model.</li>
+<li>Workspace: A container in the Service holding semantic models, reports, dashboards, etc. "My Workspace" is your personal area.</li>
+</ul>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>An Excel workbook containing tabular data. The transcription references a training file (single table on one sheet).</li>
+<li>Ability to use My Workspace or another workspace where you can create content.</li>
+</ul>
+<p>If your Excel file is not already formatted as a table in Excel, the Service can still read a sheet, but tables are recommended for cleaner type inference and column detection.</p>
+<hr />
+<h2 id="data-preparation-checklist-excel">Data Preparation Checklist (Excel)</h2>
+<p>Recommended before upload:</p>
+<ul>
+<li>One header row with clear column names.</li>
+<li>No merged cells in the data region.</li>
+<li>Values typed consistently per column (dates as dates, numbers as numbers, text as text).</li>
+<li>If possible, format the data as an Excel Table (Insert &gt; Table). Name it meaningfully (e.g., SalesData).</li>
+<li>Remove totals/subtotals from the data region. Keep the dataset row-level and add aggregations in Power BI.</li>
+</ul>
+<hr />
+<h2 id="workflow-overview">Workflow Overview</h2>
+<ol>
+<li>Open the Power BI Service and go to a workspace.</li>
+<li>Create a new semantic model and choose Excel as the source.</li>
+<li>Upload the Excel file (OneDrive recommended, local upload supported per transcription).</li>
+<li>Authenticate if requested, then select the table or sheet from the workbook.</li>
+<li>Create the semantic model and wait for the load to finish.</li>
+<li>Build a simple report (table visual) using fields from the model.</li>
+<li>Save the report and confirm both the semantic model and the report exist in the workspace.</li>
+</ol>
+<hr />
+<h2 id="detailed-steps">Detailed Steps</h2>
+<h3 id="access-the-service">Access the Service</h3>
+<ol>
+<li>Navigate to <a href="https://app.powerbi.com">https://app.powerbi.com</a> and sign in.</li>
+<li>
+<p>Home page options:</p>
+</li>
+<li>
+<p>New report (quick start), or</p>
+</li>
+<li>Create menu for more options.</li>
+</ol>
+<p>The transcription proceeds via a workspace for clarity and control.</p>
+<h3 id="go-to-a-workspace">Go to a Workspace</h3>
+<ol>
+<li>In the left navigation, select "Workspaces".</li>
+<li>Choose "My Workspace".</li>
+<li>Click "New item".</li>
+</ol>
+<p>You will see options including "Semantic model" (data model), reports, and more.</p>
+<h3 id="create-a-semantic-model">Create a Semantic Model</h3>
+<ol>
+<li>Select "Semantic model".</li>
+<li>
+<p>Choose the data source type. Options shown in the transcription:</p>
+</li>
+<li>
+<p>Excel</p>
+</li>
+<li>CSV</li>
+<li>Paste or manual entry</li>
+<li>Select "Excel".</li>
+</ol>
+<h3 id="choose-storage-and-upload">Choose Storage and Upload</h3>
+<ol>
+<li>The Service offers to connect from online storage (OneDrive recommended in the transcription).</li>
+<li>If your file is local, select "Upload file".</li>
+<li>Use "Browse" and pick the Excel file (e.g., training_data.xlsx).</li>
+<li>Confirm the selection. The Service uploads the file.</li>
+<li>Wait for "Upload success".</li>
+</ol>
+<p>Note: OneDrive is recommended in the transcription for easier refresh and updates. Local uploads are supported for this lesson.</p>
+<h3 id="authorize-if-prompted">Authorize if Prompted</h3>
+<ol>
+<li>If "Next" is disabled, click "Sign in".</li>
+<li>Authorize your account.</li>
+<li>Once authorized, the "Next" button is enabled. Click "Next".</li>
+</ol>
+<h3 id="select-workbook-objects">Select Workbook Objects</h3>
+<ol>
+<li>
+<p>The Service scans for:</p>
+</li>
+<li>
+<p>Tables (preferred)</p>
+</li>
+<li>Sheets</li>
+<li>Select the table if available. The transcription notes that the table and sheet contained the same data.</li>
+<li>
+<p>Review the preview:</p>
+</li>
+<li>
+<p>Verify column names.</p>
+</li>
+<li>Confirm data types (dates show as date, numeric as decimal, text as text).</li>
+<li>Click "Create".</li>
+</ol>
+<h3 id="load-and-validate">Load and Validate</h3>
+<ol>
+<li>
+<p>The Service performs:</p>
+</li>
+<li>
+<p>Preparing</p>
+</li>
+<li>Loading</li>
+<li>Finishing</li>
+<li>
+<p>After completion:</p>
+</li>
+<li>
+<p>Open the model-backed report canvas.</p>
+</li>
+<li>In the right pane, confirm the table (e.g., Data 1) and its fields are visible.</li>
+<li>Visualizations and Filters panes are available.</li>
+</ol>
+<hr />
+<h2 id="build-a-simple-report-table">Build a Simple Report (Table)</h2>
+<h3 id="insert-a-table-visual">Insert a Table Visual</h3>
+<ol>
+<li>On the canvas, select the "Table" visual.</li>
+<li>
+<p>With the visual selected:</p>
+</li>
+<li>
+<p>Click a categorical field (e.g., Manufacturer) to add it to the table.</p>
+</li>
+<li>Drag a numeric field (e.g., Sales) into the visual or into the "Values" well.</li>
+</ol>
+<p>Result: Sales are aggregated by Manufacturer. The default aggregation for numeric fields is sum.</p>
+<h3 id="basic-formatting-and-interaction-optional">Basic Formatting and Interaction (Optional)</h3>
+<ul>
+<li>Sorting: Use the column header dropdown or sort icon on the visual.</li>
+<li>Aggregation: If a numeric column aggregates incorrectly, change it in the Values well (e.g., Sum, Average, Count) or set it to "Do not summarize" when appropriate.</li>
+<li>Resizing: Drag handles on the visual to resize. Expand the canvas region by minimizing the Filters pane for more space.</li>
+</ul>
+<hr />
+<h2 id="save-and-locate-artifacts">Save and Locate Artifacts</h2>
+<h3 id="save-the-report">Save the Report</h3>
+<ol>
+<li>Click the disk icon.</li>
+<li>Enter a name (e.g., "My Report").</li>
+<li>Click "Save".</li>
+</ol>
+<h3 id="confirm-in-workspace">Confirm in Workspace</h3>
+<ol>
+<li>Return to "My Workspace".</li>
+<li>
+<p>You should now see:</p>
+</li>
+<li>
+<p>The semantic model (the uploaded and created model from Excel).</p>
+</li>
+<li>The report (the one you saved).</li>
+<li>Open the report from the workspace. To edit, click "Edit" in the toolbar.</li>
+</ol>
+<hr />
+<h2 id="operational-guidance">Operational Guidance</h2>
+<h3 id="storage-choice-and-refresh">Storage Choice and Refresh</h3>
+<ul>
+<li>OneDrive/SharePoint Online: Recommended in the transcription for simpler update cycles. Edits to the workbook can be surfaced with minimal effort.</li>
+<li>Local upload: Suitable for quick tests or static data. To update, repeat the upload or replace the file as applicable.</li>
+</ul>
+<p>For routine updates, keep source files online (OneDrive/SharePoint). This reduces manual steps for data refresh in the Service.</p>
+<h3 id="workspace-organization">Workspace Organization</h3>
+<ul>
+<li>
+<p>Use clear, consistent names:</p>
+</li>
+<li>
+<p>Semantic model: e.g., "TrainingData_SemanticModel"</p>
+</li>
+<li>Report: e.g., "TrainingData_Report"</li>
+<li>Add descriptions in workspace item settings to document source and purpose.</li>
+<li>Use folders or naming prefixes to distinguish environments (e.g., DEV_, TEST_, PROD_) if working outside "My Workspace".</li>
+</ul>
+<h3 id="data-types-and-quality">Data Types and Quality</h3>
+<ul>
+<li>Verify that dates, numbers, and text appear as expected in the preview.</li>
+<li>
+<p>If types are incorrect in the Service preview:</p>
+</li>
+<li>
+<p>Adjust the source Excel types and re-upload, or</p>
+</li>
+<li>For complex transformations, prepare data with Power BI Desktop or dataflows before publishing to the Service.</li>
+</ul>
+<h3 id="visual-construction-tips">Visual Construction Tips</h3>
+<ul>
+<li>Start with one visual to validate the model behaves as expected.</li>
+<li>
+<p>Use fields with distinct roles:</p>
+</li>
+<li>
+<p>Dimensions (e.g., Manufacturer) for grouping.</p>
+</li>
+<li>Measures or numeric columns (e.g., Sales) for aggregation.</li>
+<li>Add filters or slicers after validating the base table, if needed.</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="next-button-disabled">"Next" Button Disabled</h3>
+<ul>
+<li>Cause: Not signed in for authorization.</li>
+<li>Action: Click "Sign in", authorize, retry.</li>
+</ul>
+<h3 id="no-tables-found">No Tables Found</h3>
+<ul>
+<li>Cause: The workbook may not contain a defined table object; only a sheet is present.</li>
+<li>Action: Select the sheet. If the sheet preview looks incorrect, format the range as a table in Excel and re-upload.</li>
+</ul>
+<h3 id="data-types-misdetected">Data Types Misdetected</h3>
+<ul>
+<li>Cause: Mixed or ambiguous values in a column.</li>
+<li>Action: Clean values in Excel, ensure consistent typing, then re-upload.</li>
+</ul>
+<h3 id="upload-dialog-off-screen">Upload Dialog Off-Screen</h3>
+<ul>
+<li>Cause: Screen capture or window sizing issue (noted in the transcription).</li>
+<li>Action: Use the system file picker, choose the file, confirm "Open".</li>
+</ul>
+<h3 id="fields-not-aggregating-as-expected">Fields Not Aggregating As Expected</h3>
+<ul>
+<li>Cause: Default summarization may not match intent.</li>
+<li>Action: In the Values well, set aggregation explicitly (Sum, Average, Count, Do not summarize).</li>
+</ul>
+<h3 id="report-not-visible-after-save">Report Not Visible After Save</h3>
+<ul>
+<li>Cause: Saved to another workspace or save failed.</li>
+<li>Action: Verify the current workspace, refresh the workspace list, confirm item names.</li>
+</ul>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="before-upload">Before Upload</h3>
+<ul>
+<li>Clean, typed columns in Excel.</li>
+<li>Use an Excel Table for the data region.</li>
+<li>Avoid calculated totals in the raw table.</li>
+</ul>
+<h3 id="during-model-creation">During Model Creation</h3>
+<ul>
+<li>Prefer "Table" over "Sheet" when both exist.</li>
+<li>Verify previewed data types.</li>
+</ul>
+<h3 id="after-model-creation">After Model Creation</h3>
+<ul>
+<li>Validate a simple table visual end-to-end.</li>
+<li>Name and save artifacts clearly.</li>
+<li>Keep source files in online storage for easier updates.</li>
+</ul>
+<p>For advanced modeling, consider preparing the model in Power BI Desktop or using dataflows, then publishing to the Service.</p>
+<hr />
+<h2 id="quick-reference">Quick Reference</h2>
+<ul>
+<li>Create model: Workspace &gt; New item &gt; Semantic model &gt; Excel.</li>
+<li>Upload: Upload file &gt; Browse &gt; Select workbook &gt; Upload success.</li>
+<li>Authorize: Sign in if prompted &gt; Next enabled.</li>
+<li>Select objects: Choose Table (preferred) or Sheet &gt; Preview &gt; Create.</li>
+<li>Build: Add Table visual &gt; Add categorical field(s) + numeric field(s).</li>
+<li>Save: Disk icon &gt; Name report &gt; Save.</li>
+<li>Locate: Workspace shows both semantic model and report.</li>
+</ul>
+<hr />
+<h2 id="notes-and-limits">Notes and Limits</h2>
+<ul>
+<li>This document follows the exact flow in the transcription: semantic model creation from an Excel file in the Power BI Service, then a single table visual, and save.</li>
+<li>Capacity limits, licensing nuances, and refresh scheduling specifics are not included here. I do not have access to that information.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/CagriCatik/Power-BI" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "header.autohide", "header.autohide", "toc.follow", "palette.toggle"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
