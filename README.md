@@ -1,17 +1,27 @@
-<h1 align="center">Power BI Learning Repository</h1>
+<h1 align="center">Power BI</h1>
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI Logo" width="120"/>
 </p>
 
+---
 
 <p align="center">
-  <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/deploy.yml/badge.svg" alt="Deploy MkDocs site"/>
-  <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/generate-pdf.yml/badge.svg" alt="Generate PDF from MkDocs"/>
-  <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/check-links.yml/badge.svg" alt="Check Links"/>
-  <img src="https://img.shields.io/badge/Microsoft-Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=white" alt="Power BI Badge"/>
-  <img src="https://img.shields.io/badge/MkDocs-Documentation-1f77b4?style=flat&logo=markdown&logoColor=white" alt="MkDocs Badge"/>
-  <img src="https://img.shields.io/badge/GitHub%20Pages-Deployed-181717?style=flat&logo=github&logoColor=white" alt="GitHub Pages Badge"/>
+  <a href="https://github.com/CagriCatik/Power-BI/actions/workflows/deploy.yml">
+    <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/deploy.yml/badge.svg" alt="Deploy MkDocs Site"/>
+  </a>
+  <a href="https://github.com/CagriCatik/Power-BI/actions/workflows/generate-pdf.yml">
+    <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/generate-pdf.yml/badge.svg" alt="Generate PDF from MkDocs"/>
+  </a>
+  <a href="https://github.com/CagriCatik/Power-BI/actions/workflows/check-links.yml">
+    <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/check-links.yml/badge.svg" alt="Check Links"/>
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://cagricatik.github.io/Power-BI/">
+    <img src="https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=black" alt="Built with Material for MkDocs"/>
+  </a>
 </p>
 
 ---
@@ -94,7 +104,41 @@ This repository contains the full course material for learning **Microsoft Power
 ### 11. Integration with Other Tools
 
 * Power BI with Excel for enhanced analysis.  
-* Power BI with PowerPoint for reporting.  
+* Power BI with PowerPoint for reporting.
+
+### 12. Python in Power BI
+
+**Introduction and Setup**
+
+* User-interface updates to be aware of
+* Enhanced Power BI Reporting with Python: Facts
+* Introduction to Python and Power BI
+* Setting the Stage: Installing Anaconda
+* Introduction and Setup
+* Your Feedback Matters!
+
+**Python Basics and Data Manipulation**
+
+* Python Prowess in Data Manipulation
+* Understanding the Building Blocks: Dictionary and DataFrame
+* Manipulating Data with DataFrame Functions
+* Exploring the Trio: Three Ways to Use Python Scripting
+* Painting with Data: The Art of Visualization in Python
+* Python Basics and Data Manipulation
+* Tips: Excelling in Data Analytics with Python and Power BI
+
+**Advanced Python Applications in Power BI**
+
+* Power BI + Python: Must Know
+* Enhancing Your Visuals: Python Visuals and the Spyder IDE
+* Taming Time: Working with Date Tables in Python
+* The Art of Combining Data and Advanced Filtering
+* Exemplifying Brilliance: Python Enhanced Report
+* Perfecting Your Skills: Python Enhanced Report
+* Advanced Python Applications in Power BI
+* Advanced Python Insights and Tips in Power BI
+* Visualizing ADR Trends with Power BI and Python
+* Dataset Download
 
 ---
 
@@ -109,7 +153,7 @@ Run the site locally:
 
 ```bash
 mkdocs serve
-````
+```
 
 Build the static site:
 

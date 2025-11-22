@@ -1,6 +1,6 @@
 # Power BI Course
 
-Learn Microsoft Power BI from first steps to advanced reporting, DAX, and publishing. This site hosts the complete course material, organized to take you from installation to interactive, production-ready reports.
+Learn Microsoft Power BI from first steps to advanced reporting, DAX (Data Analysis Expressions), and publishing. This site hosts the complete course material, organized to take you from installation to interactive, production-ready reports.
 
 ---
 
