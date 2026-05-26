@@ -1,0 +1,76 @@
+/* ============================================
+   Light mode (default)
+============================================ */
+:root {
+  --md-primary-fg-color: #F2C811;        /* Power BI yellow */
+  --md-accent-fg-color: #E5A500;         /* Darker yellow accent */
+  --md-default-fg-color--light: #6B6B6B;
+  --md-default-fg-color--lighter: #A0A0A0;
+
+  /* Font scaling */
+  --md-text-font-size: 16px;            /* Base text size */
+  --md-h1-font-size: 2em;
+  --md-h2-font-size: 1.5em;
+  --md-h3-font-size: 1.2em;
+}
+
+/* ============================================
+   Dark mode
+============================================ */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #F2C811;
+  --md-accent-fg-color: #E5A500;
+  --md-default-fg-color--light: #E0E0E0;
+  --md-default-fg-color--lighter: #A0A0A0;
+}
+
+/* ============================================
+   Typography scaling (applies to all modes)
+============================================ */
+
+/* Body text */
+.md-typeset {
+  font-size: var(--md-text-font-size);
+}
+
+/* Headings */
+.md-typeset h1 {
+  font-size: var(--md-h1-font-size);
+}
+
+.md-typeset h2 {
+  font-size: var(--md-h2-font-size);
+}
+
+.md-typeset h3 {
+  font-size: var(--md-h3-font-size);
+}
+
+/* ============================================
+   Navigation sidebar
+============================================ */
+
+/* Section titles (top-level groups) */
+.md-nav__title {
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Nested section links (groups in nav) */
+.md-nav__item--nested > .md-nav__link {
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Active page link */
+.md-nav__link--active {
+  color: var(--md-default-fg-color--light);
+  font-weight: 700;
+}
+
+/* Hover effect for links */
+.md-nav__link:hover {
+  color: var(--md-primary-fg-color);
+}

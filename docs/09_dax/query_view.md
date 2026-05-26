@@ -1,0 +1,223 @@
+# DAX Query View
+
+## Overview
+
+**DAX Query View** is a dedicated workspace in Power BI Desktop (and the Power BI Service) for writing and running DAX queries directly against your data model. Introduced in Power BI Desktop in 2023, it provides an interactive query editor similar to SQL query windows in database tools — you write a `EVALUATE` statement, run it, and inspect the result as a table.
+
+> **Reference:** [DAX query view in Power BI Desktop – Microsoft Learn](https://learn.microsoft.com/en-us/power-bi/transform-model/dax-query-view)
+
+---
+
+## Accessing DAX Query View
+
+1. In Power BI Desktop, click the **DAX query** icon in the left navigation bar (looks like a terminal or query window — added in recent versions of Desktop).
+2. The editor opens with a blank query pane on the left and a results pane on the bottom.
+
+In the Power BI Service:
+
+1. Open a semantic model.
+2. Click **Open data model**.
+3. Select the **DAX query** view from the left nav.
+
+---
+
+## Basic DAX Query Syntax
+
+Every DAX query must start with `EVALUATE` followed by a table expression:
+
+```dax
+EVALUATE
+Sales
+```
+
+This returns the entire Sales table.
+
+### Filtering with CALCULATETABLE
+
+```dax
+EVALUATE
+CALCULATETABLE(
+    Sales,
+    Sales[Channel] = "Online"
+)
+```
+
+### Selecting Specific Columns with SELECTCOLUMNS
+
+```dax
+EVALUATE
+SELECTCOLUMNS(
+    Sales,
+    "Order ID", Sales[OrderID],
+    "Revenue", Sales[Revenue],
+    "Order Date", Sales[Order Date]
+)
+```
+
+### Ordering Results
+
+```dax
+EVALUATE
+SELECTCOLUMNS(
+    Sales,
+    "Order ID", Sales[OrderID],
+    "Revenue", Sales[Revenue]
+)
+ORDER BY [Revenue] DESC
+```
+
+---
+
+## Returning a Single Value with ROW
+
+`EVALUATE` requires a table. To return a single measure value, wrap it in `ROW()`:
+
+```dax
+EVALUATE
+ROW(
+    "Total Revenue", [Total Revenue],
+    "Order Count", [Order Count],
+    "Gross Margin %", [Gross Margin %]
+)
+```
+
+This returns a one-row table with three named columns — useful for quickly checking measure values without building a visual.
+
+---
+
+## Using SUMMARIZECOLUMNS
+
+`SUMMARIZECOLUMNS` is the primary function for building aggregated query results:
+
+```dax
+EVALUATE
+SUMMARIZECOLUMNS(
+    Products[Category],
+    'Date'[Year],
+    "Total Revenue", [Total Revenue],
+    "Order Count", [Order Count]
+)
+ORDER BY 'Date'[Year], [Total Revenue] DESC
+```
+
+This returns a table grouped by Category and Year with the two measures computed for each combination — equivalent to a matrix visual.
+
+> **Reference:** [SUMMARIZECOLUMNS function (DAX) – Microsoft Learn](https://learn.microsoft.com/en-us/dax/summarizecolumns-function-dax)
+
+---
+
+## Applying Filters in Queries
+
+Use `TREATAS` to apply filter values from a literal table as if they were relationships:
+
+```dax
+EVALUATE
+CALCULATETABLE(
+    SUMMARIZECOLUMNS(
+        Products[Category],
+        "Revenue", [Total Revenue]
+    ),
+    TREATAS({"Electronics", "Furniture"}, Products[Category])
+)
+```
+
+Or use a direct column filter:
+
+```dax
+DEFINE
+    VAR SelectedYear = 2024
+
+EVALUATE
+CALCULATETABLE(
+    SUMMARIZECOLUMNS(
+        Products[Category],
+        "Revenue", [Total Revenue]
+    ),
+    'Date'[Year] = SelectedYear
+)
+```
+
+---
+
+## DEFINE — Variables and Measures in Queries
+
+The `DEFINE` block lets you declare variables and temporary measures for use within the query:
+
+```dax
+DEFINE
+    MEASURE Sales[Query Revenue] = SUM(Sales[Revenue]) * 1.1
+    VAR MinYear = 2022
+
+EVALUATE
+SUMMARIZECOLUMNS(
+    'Date'[Year],
+    FILTER(ALL('Date'[Year]), 'Date'[Year] >= MinYear),
+    "Adjusted Revenue", [Query Revenue]
+)
+```
+
+Temporary measures defined in `DEFINE` do not affect the data model — they exist only within the query session.
+
+---
+
+## Quick Measure Testing Workflow
+
+DAX Query View is ideal for testing measures before adding them to visuals:
+
+1. Write a `ROW()` query containing the measure being developed.
+2. Run the query to see the value at the model level (no filters).
+3. Add `CALCULATETABLE` or a filter argument to test the measure in a specific filter context.
+4. Compare to expected values from source data.
+
+```dax
+EVALUATE
+ROW(
+    "Revenue YTD", [Revenue YTD],
+    "Revenue Prior Year", [Revenue Prior Year],
+    "YoY Growth %", [YoY Revenue Growth %]
+)
+```
+
+---
+
+## Exporting Query Results
+
+Query results in DAX Query View can be:
+
+* Copied as a table to the clipboard.
+* Exported to CSV using the export button in the results pane.
+
+This makes it easy to validate model calculations against expected values in a spreadsheet.
+
+---
+
+## Performance Analysis
+
+DAX Query View works with **DAX Studio** (a free external tool) for detailed performance profiling. Run a query and DAX Studio shows:
+
+* Server timings (storage engine vs formula engine time).
+* Query plan.
+* Cache behavior.
+
+For query performance analysis inside Power BI Desktop, use the **Performance Analyzer** in the View ribbon, which shows the DAX query generated by each visual.
+
+> **Reference:** [Use Performance Analyzer to examine report element performance – Microsoft Learn](https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-performance-analyzer)
+
+---
+
+## Best Practices
+
+* Use DAX Query View to **validate measures** against known totals before publishing.
+* Use `DEFINE MEASURE` to prototype a measure interactively before adding it permanently to the model.
+* Keep queries organized — use comments (`--`) to label each section.
+* Use `ORDER BY` in queries to make results easier to read.
+* For complex models, use **DAX Studio** (external tool) for deeper query analysis.
+
+---
+
+## References
+
+* [DAX query view in Power BI Desktop – Microsoft Learn](https://learn.microsoft.com/en-us/power-bi/transform-model/dax-query-view)
+* [EVALUATE statement (DAX) – Microsoft Learn](https://learn.microsoft.com/en-us/dax/evaluate-statement-dax)
+* [SUMMARIZECOLUMNS function (DAX) – Microsoft Learn](https://learn.microsoft.com/en-us/dax/summarizecolumns-function-dax)
+* [Use Performance Analyzer to examine report element performance – Microsoft Learn](https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-performance-analyzer)

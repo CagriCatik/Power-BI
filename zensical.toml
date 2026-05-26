@@ -1,0 +1,180 @@
+[project]
+site_name        = "Power BI"
+site_description = "Learn Microsoft Power BI from first steps to advanced reporting, DAX, and publishing."
+site_author      = "Çağrı"
+repo_url         = "https://github.com/CagriCatik/Power-BI"
+repo_name        = "CagriCatik/Power-BI"
+
+# ---------------------------------------------------------------------------
+# Theme
+# ---------------------------------------------------------------------------
+[project.theme]
+name     = "material"
+features = [
+  "navigation.instant",
+  "navigation.tracking",
+  "navigation.top",
+  "navigation.tabs",
+  "navigation.indexes",
+  "search.suggest",
+  "search.highlight",
+  "search.share",
+  "content.code.copy",
+  "content.code.annotate",
+  "content.tabs.link",
+  "header.autohide",
+  "toc.follow",
+  "palette.toggle",
+]
+
+[[project.theme.palette]]
+media       = "(prefers-color-scheme: light)"
+scheme      = "default"
+primary     = "amber"
+accent      = "amber"
+toggle.icon = "material/weather-night"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media       = "(prefers-color-scheme: dark)"
+scheme      = "slate"
+primary     = "amber"
+accent      = "amber"
+toggle.icon = "material/weather-sunny"
+toggle.name = "Switch to light mode"
+
+# ---------------------------------------------------------------------------
+# Extra
+# ---------------------------------------------------------------------------
+[project.extra]
+social = [
+  { icon = "fontawesome/brands/github", link = "https://github.com/CagriCatik/Power-BI" },
+]
+
+extra_css = ["styles/extra.css"]
+
+# ---------------------------------------------------------------------------
+# Navigation
+# ---------------------------------------------------------------------------
+nav = [
+  { "Home" = "index.md" },
+
+  { "Getting Started" = [
+    { "Introduction"       = "01_getting_started/index.md" },
+    { "Signing Up"         = "01_getting_started/sign_up.md" },
+    { "Load Data"          = "01_getting_started/load_data.md" },
+  ] },
+
+  { "Desktop" = [
+    { "Overview"           = "02_desktop/index.md" },
+    { "Options & Settings" = "02_desktop/options_settings.md" },
+    { "Desktop Interface"  = "02_desktop/overview.md" },
+  ] },
+
+  { "Tables" = [
+    { "Introduction"            = "03_tables/index.md" },
+    { "Creating Tables"         = "03_tables/creating_tables.md" },
+    { "Styles & Formatting"     = "03_tables/styles_formatting.md" },
+    { "Practical Activity"      = "03_tables/activity.md" },
+    { "Activity — Completed"    = "03_tables/activity_completed.md" },
+    { "Cross Filtering"         = "03_tables/cross_filtering.md" },
+    { "Aggregation"             = "03_tables/aggregation.md" },
+    { "Aggregation Activity"    = "03_tables/aggregation_activity.md" },
+    { "Aggregation — Completed" = "03_tables/aggregation_completed.md" },
+  ] },
+
+  { "Visuals" = [
+    { "Overview"             = "04_visuals/index.md" },
+    { "Matrix"               = "04_visuals/matrix.md" },
+    { "Cards"                = "04_visuals/cards.md" },
+    { "Practical Activity"   = "04_visuals/activity.md" },
+    { "Activity — Completed" = "04_visuals/activity_completed.md" },
+  ] },
+
+  { "Dates & Calculations" = [
+    { "Introduction"           = "05_dates/index.md" },
+    { "Working with Dates"     = "05_dates/working_with_dates.md" },
+    { "Visual Calc — Setup"    = "05_dates/visual_calc_setup.md" },
+    { "Visual Calc — Functions" = "05_dates/visual_calc_functions.md" },
+  ] },
+
+  { "Filters & Slicers" = [
+    { "Introduction"             = "06_filters/index.md" },
+    { "Slicers — Text"           = "06_filters/slicers_text.md" },
+    { "Slicers — Numeric"        = "06_filters/slicers_numeric.md" },
+    { "Slicers — Date"           = "06_filters/slicers_date.md" },
+    { "Visual Filters — Text"    = "06_filters/visual_filters_text.md" },
+    { "Visual Filters — Numeric" = "06_filters/visual_filters_numeric.md" },
+    { "Visual Filters — Date"    = "06_filters/visual_filters_date.md" },
+    { "Page & Report Filters"    = "06_filters/page_report_filters.md" },
+    { "Practical Activity"       = "06_filters/activity.md" },
+    { "Activity — Completed"     = "06_filters/activity_completed.md" },
+  ] },
+
+  { "Charts" = [
+    { "Introduction"           = "07_charts/index.md" },
+    { "Clustered Column"       = "07_charts/clustered_column.md" },
+    { "Stacked Charts"         = "07_charts/stacked.md" },
+    { "Challenge"              = "07_charts/challenge.md" },
+    { "Challenge — Completed"  = "07_charts/challenge_completed.md" },
+    { "Chart Options"          = "07_charts/graph_options.md" },
+    { "Reference Lines"        = "07_charts/reference_lines.md" },
+    { "Trend Analysis"         = "07_charts/trend_analysis.md" },
+    { "Trends & Forecasting"   = "07_charts/forecasting.md" },
+    { "Area Charts"            = "07_charts/area.md" },
+    { "Additional Chart Types" = "07_charts/additional.md" },
+  ] },
+
+  { "Dashboards" = [
+    { "Creating Dashboards"   = "08_dashboards/index.md" },
+    { "Challenge"             = "08_dashboards/challenge.md" },
+    { "Challenge — Completed" = "08_dashboards/challenge_completed.md" },
+    { "Publishing Reports"    = "08_dashboards/publishing.md" },
+    { "Pinning Visuals"       = "08_dashboards/pinning.md" },
+    { "Mobile Reports"        = "08_dashboards/mobile.md" },
+    { "Q&A"                   = "08_dashboards/q_and_a.md" },
+    { "App Workspaces"        = "08_dashboards/workspaces.md" },
+    { "Publishing an App"     = "08_dashboards/publishing_app.md" },
+    { "Custom Visuals"        = "08_dashboards/custom_visuals.md" },
+    { "Themes"                = "08_dashboards/themes.md" },
+  ] },
+
+  { "DAX" = [
+    { "Introduction"      = "09_dax/index.md" },
+    { "Calculated Columns" = [
+      { "DAX Columns"       = "09_dax/columns.md" },
+      { "Date Functions"    = "09_dax/date_functions.md" },
+      { "Formatting Dates"  = "09_dax/formatting_dates.md" },
+      { "Date Tables"       = "09_dax/date_table.md" },
+    ] },
+    { "Measures" = [
+      { "Introduction"         = "09_dax/measures_intro.md" },
+      { "DAX Measures"         = "09_dax/measures.md" },
+      { "Measures Activity"    = "09_dax/measures_activity.md" },
+      { "Activity — Completed" = "09_dax/measures_completed.md" },
+      { "CALCULATE"            = "09_dax/calculate.md" },
+      { "DAX Query View"       = "09_dax/query_view.md" },
+    ] },
+  ] },
+
+  { "Modeling" = [
+    { "Introduction"              = "10_modeling/index.md" },
+    { "Relationships"             = "10_modeling/relationships.md" },
+    { "Relationship Calculations" = "10_modeling/relationship_calcs.md" },
+    { "Query Editor"              = "10_modeling/query_editor.md" },
+    { "Transformations — Part 1"  = "10_modeling/transformations_1.md" },
+    { "Transformations — Part 2"  = "10_modeling/transformations_2.md" },
+    { "Summary Tables"            = "10_modeling/summary_tables.md" },
+  ] },
+
+  { "Integrations" = [
+    { "Introduction"        = "11_integrations/index.md" },
+    { "Power BI & Excel"    = "11_integrations/excel.md" },
+    { "Power BI & PowerPoint" = "11_integrations/powerpoint.md" },
+  ] },
+
+  { "Conclusion" = [
+    { "Conclusion"       = "12_conclusion/index.md" },
+    { "Useful Resources" = "12_conclusion/resources.md" },
+  ] },
+]
