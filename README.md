@@ -4,19 +4,6 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI Logo" width="120"/>
 </p>
 
-<p align="center">
-  <a href="https://github.com/CagriCatik/Power-BI/actions/workflows/deploy.yml">
-    <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/deploy.yml/badge.svg" alt="Deploy zensical Site"/>
-  </a>
-  <a href="https://github.com/CagriCatik/Power-BI/actions/workflows/generate-pdf.yml">
-    <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/generate-pdf.yml/badge.svg" alt="Generate PDF from MkDocs"/>
-  </a>
-  <a href="https://github.com/CagriCatik/Power-BI/actions/workflows/check-links.yml">
-    <img src="https://github.com/CagriCatik/Power-BI/actions/workflows/check-links.yml/badge.svg" alt="Check Links"/>
-  </a>
-</p>
-
-
 ---
 
 ## Overview

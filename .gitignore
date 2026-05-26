@@ -91,6 +91,5 @@ cython_debug/
 *.sublime-workspace
 
 # Zensical build output
-*.materials
-*.site
 site/
+materials/
